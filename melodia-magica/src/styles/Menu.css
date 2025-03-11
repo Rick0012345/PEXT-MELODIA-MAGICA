@@ -1,0 +1,49 @@
+/* Estilos para o container principal */
+.container {
+    text-align: center;
+    padding: 80px;
+  }
+  
+  /* Estilos para o cabeçalho */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    color: white;
+  }
+  
+  /* Estilos para o texto de perfil */
+  .profile {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  /* Estilos para a lista de menu */
+  .menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+  }
+  
+  /* Estilos para cada item do menu */
+  .menu-item {
+    margin-bottom: 10px;
+  }
+  
+  /* Estilos para os botões */
+  .menu-button {
+    padding: 15px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 180px;
+  }
+  
+  /* Efeito hover para os botões */
+  .menu-button:hover {
+    background-color: #0056b3;
+  }
