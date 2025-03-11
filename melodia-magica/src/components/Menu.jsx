@@ -1,7 +1,10 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/Menu.css";
 
+
 function Menu({ mostrarTela }) {
+  const navigate = useNavigate();
   return (
     <div className="container">
       <div className="header">
@@ -9,7 +12,7 @@ function Menu({ mostrarTela }) {
       </div>
       <ul className="menu-list">
         <li className="menu-item">
-          <button className="menu-button" onClick={() => mostrarTela("quiz")}>
+          <button className="menu-button" onClick={() => navigate("/game_page")}>
             Iniciar Quiz
           </button>
         </li>

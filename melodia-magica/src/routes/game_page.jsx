@@ -1,7 +1,7 @@
-import Menu from "../components/Menu";
+import Quiz from "../components/Quiz.jsx";
 function Home() {
     return (
-      <Menu ></Menu>
+      <Quiz></Quiz>
     );
   }
   
