@@ -1,13 +1,14 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "../styles/Login.css";
 
-function Login({ mostrarTela }) {
+function Login() {
   const [usersDatabase, setUsersDatabase] = useState([
     { username: "admin", password: "123456" },
     { username: "user1", password: "password1" },
     { username: "user2", password: "password2" },
   ]);
-
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
@@ -20,7 +21,7 @@ function Login({ mostrarTela }) {
 
     if (user) {
       setMessage("Login bem-sucedido!");
-      mostrarTela("menu");
+      navigate("/home");
     } else {
       setMessage("Usuário ou senha incorretos.");
     }
