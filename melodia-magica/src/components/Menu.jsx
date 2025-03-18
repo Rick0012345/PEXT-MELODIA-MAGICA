@@ -41,7 +41,7 @@ function Menu({ mostrarTela }) {
           </button>
         </li>
       </ul>
-      <button className="menu-button" onClick={() => mostrarTela("login")}>
+      <button className="menu-button" onClick={() => navigate("/")}>
         Sair
       </button>
     </div>
