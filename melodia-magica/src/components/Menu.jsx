@@ -36,7 +36,7 @@ function Menu({ mostrarTela }) {
                 "Sobre o Melodia Mágica\n\nBem-vindo ao nosso Quiz Melodia Mágica! 🎶🎉\n\nAqui, as crianças podem aprender sobre música de maneira divertida e interativa, testando seus conhecimentos com perguntas sobre instrumentos musicais, sons, e muito mais! Nosso quiz foi criado especialmente para os pequenos, com perguntas fáceis e divertidas que tornam o aprendizado um verdadeiro jogo."
               )
             }
-          >
+          > 
             Sobre
           </button>
         </li>
