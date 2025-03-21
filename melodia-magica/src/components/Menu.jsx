@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "../styles/Menu.css";
 
 
-function Menu({ mostrarTela }) {
+function Menu({ }) {
   const navigate = useNavigate();
   return (
     <div className="container">

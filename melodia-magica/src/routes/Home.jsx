@@ -1,10 +1,16 @@
+
 import Menu from "../components/Menu";
+import Navbar from "../components/Navbar";
+
 function Home() {
     return (
-      <Menu ></Menu>
+        <div>
+            <Navbar />
+            <Menu />
+        </div>
     );
-  }
-  
-  export default Home;
+}
+
+export default Home;
   
   
