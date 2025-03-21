@@ -1,9 +1,12 @@
-/* Estilos para o container principal */
 .container {
-    text-align: center;
-    padding: 80px;
-
-  }
+  text-align: center;
+  padding: 80px;
+  width: 100vw;
+  display: flex; /* Adiciona flexbox */
+  flex-direction: column; /* Alinha os itens verticalmente */
+  align-items: center; /* Centraliza horizontalmente */
+  justify-content: center; /* Centraliza verticalmente */
+}
   
   /* Estilos para o cabeçalho */
   .header {
