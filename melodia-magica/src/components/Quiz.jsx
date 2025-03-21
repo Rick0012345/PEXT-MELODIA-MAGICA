@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import "../styles/quiz.css"; // Importando o arquivo CSS
+import { useNavigate } from "react-router-dom";
 
-const Quiz = ({ mostrarTela }) => {
+const Quiz = ({ }) => {
+  const navigate = useNavigate();
   const questions = [
     {
       question: "Qual destes instrumentos é tocado com um arco?",
@@ -130,7 +132,7 @@ const Quiz = ({ mostrarTela }) => {
           </p>
           <button
             className="quiz-next-button"
-            onClick={() => mostrarTela("menu")}
+            onClick={() => navigate("/")}
           >
             Voltar ao Menu
           </button>
