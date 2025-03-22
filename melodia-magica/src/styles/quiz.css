@@ -3,10 +3,14 @@
     text-align: center;
     padding: 20px;
     color: white;
+    text-shadow:  1px 0 black,  
+    -2px -1px 0 black,
+    1px -1px 0 black,
+    -1px 1px 0 black;
   }
   
   .quiz-question {
-    font-size: 24px;
+    font-size: 25px;
     margin-bottom: 20px;
   }
   
@@ -23,10 +27,11 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    background-color: #251f02;
   }
   
   .quiz-option-button:hover {
-    background-color: #f0f0f0;
+    background-color: #85793a;
   }
   
   .quiz-feedback {
@@ -39,7 +44,7 @@
     margin-top: 20px;
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #007bff;
+    background-color: #4a4e07;
     color: white;
     border: none;
     border-radius: 5px;
@@ -47,7 +52,7 @@
   }
   
   .quiz-next-button:hover {
-    background-color: #0056b3;
+    background-color: #74751d;
   }
   
   .quiz-result-message {
