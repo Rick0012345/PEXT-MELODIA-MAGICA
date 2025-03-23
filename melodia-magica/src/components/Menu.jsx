@@ -4,6 +4,7 @@ import "../styles/Menu.css";
 
 
 function Menu({ }) {
+  const pathBase = "/PEXT-MELODIA-MAGICA";
   const navigate = useNavigate();
   return (
     <div className="container">
@@ -41,9 +42,7 @@ function Menu({ }) {
           </button>
         </li>
       </ul>
-      <button className="menu-button" onClick={() => navigate("/")}>
-        Sair
-      </button>
+      
     </div>
   );
 }

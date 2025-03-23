@@ -2,21 +2,22 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Navbar.css';
 const Navbar = () => {
+  const pathBase = "/PEXT-MELODIA-MAGICA";
   return (
     <nav className="navbar">
       
         <span className="logo">Melodia Mágica</span>       
         <div className="nav-links">
-          <Link to="/" className="nav-link">
+          <Link to={`${pathBase}/`} className="nav-link">
             Home
           </Link>
-          <Link to="/about" className="nav-link">
+          <Link to={`${pathBase}/about`} className="nav-link">
             Sobre
           </Link>
-          <Link to="/services" className="nav-link">
+          <Link to={`${pathBase}/services`} className="nav-link">
             Serviços
           </Link>
-          <Link to="/contact" className="nav-link">
+          <Link to={`${pathBase}/contact`} className="nav-link">
             Contato
           </Link>
         </div>
