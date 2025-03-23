@@ -7,10 +7,10 @@ import Quiz from './routes/game_page';
 import App from './App';
 
 import{ createBrowserRouter, RouterProvider,} from "react-router-dom";
-
+const pathBase = "/PEXT-MELODIA-MAGICA"
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: `${pathBase}/`,
     element: <Home />,
     
   },
