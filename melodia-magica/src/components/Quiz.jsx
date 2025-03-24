@@ -3,6 +3,7 @@ import "../styles/quiz.css"; // Importando o arquivo CSS
 import { useNavigate } from "react-router-dom";
 
 const Quiz = ({ }) => {
+  const pathBase = "/PEXT-MELODIA-MAGICA";
   const navigate = useNavigate();
   const questions = [
     {
@@ -132,7 +133,7 @@ const Quiz = ({ }) => {
           </p>
           <button
             className="quiz-next-button"
-            onClick={() => navigate("/")}
+            onClick={() => navigate( pathBase+"/")}
           >
             Voltar ao Menu
           </button>
