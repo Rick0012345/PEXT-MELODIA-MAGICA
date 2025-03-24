@@ -2,8 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Menu.css";
 
-
-function Menu({ }) {
+function Menu() {
   const navigate = useNavigate();
   return (
     <div className="container">
@@ -41,9 +40,7 @@ function Menu({ }) {
           </button>
         </li>
       </ul>
-      <button className="menu-button" onClick={() => navigate("/")}>
-        Sair
-      </button>
+      
     </div>
   );
 }

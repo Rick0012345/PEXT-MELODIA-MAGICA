@@ -7,6 +7,7 @@ import Quiz from './routes/game_page';
 import App from './App';
 
 import{ createBrowserRouter, RouterProvider,} from "react-router-dom";
+import Login from './components/Login';
 
 const router = createBrowserRouter([
   {
@@ -15,8 +16,8 @@ const router = createBrowserRouter([
     
   },
   {
-    path: "/home",
-    element: <Home />,
+    path: "/login",
+    element: <Login_page />,
   },
   {
     path: "/game_page",

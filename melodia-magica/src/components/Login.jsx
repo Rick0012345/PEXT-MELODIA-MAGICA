@@ -1,141 +1,145 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "../styles/Login.css";
+import styles from "../styles/Login.module.css";
 
-function Login() {
-  const [usersDatabase, setUsersDatabase] = useState([
-    { username: "admin", password: "123456" },
-    { username: "user1", password: "password1" },
-    { username: "user2", password: "password2" },
-  ]);
+function App() {
   const navigate = useNavigate();
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [message, setMessage] = useState("");
-  const [mode, setMode] = useState("login");
+  const [uname, setUname] = useState("");
+  const [pass, setPass] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [btnDisabled, setBtnDisabled] = useState(true);
+  const [msg, setMsg] = useState("");
+  const [buttonClass, setButtonClass] = useState("");
 
-  const handleLogin = () => {
-    const user = usersDatabase.find(
-      (user) => user.username === username && user.password === password
-    );
+  // Função para alternar visibilidade da senha
+  const handlePasswordToggle = () => {
+    setShowPassword(!showPassword);
+  };
 
-    if (user) {
-      setMessage("Login bem-sucedido!");
-      navigate("/home");
+  // Função para verificar campos de entrada e habilitar/desabilitar botão
+  const checkFields = () => {
+    console.log("Verificando campos: uname =", uname, ", pass =", pass);
+    if (uname && pass) {
+      setBtnDisabled(false);
+      setMsg("");
+      resetButtonPosition();
     } else {
-      setMessage("Usuário ou senha incorretos.");
+      setBtnDisabled(true);
+      console.log("Botão desativado, chamando shiftButton");
+      shiftButton();
     }
   };
 
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter") {
-      if (mode === "login") {
-        handleLogin();
-      } else if (mode === "register") {
-        handleRegister();
-      } else if (mode === "forgotPassword") {
-        handleForgotPassword();
-      }
+  // Função para mostrar mensagem de erro
+  const showMsg = () => {
+    if (!uname || !pass) {
+      setMsg("Não dê uma de Espertinho kkk");
+    } else {
+      setMsg("");
     }
   };
 
-  const handleRegister = () => {
-    if (!username || !password) {
-      setMessage("Preencha todos os campos.");
-      return;
-    }
-
-    const userExists = usersDatabase.some((user) => user.username === username);
-
-    if (userExists) {
-      setMessage("Usuário já cadastrado.");
-    } else {
-      setUsersDatabase([...usersDatabase, { username, password }]);
-      setMessage("Usuário registrado com sucesso!");
-      setMode("login");
-    }
+  // Função para mover botão aleatoriamente
+  const shiftButton = () => {
+    showMsg();
+    const positions = ["shift-left", "shift-top", "shift-right", "shift-bottom"];
+    const nextPosition = positions[Math.floor(Math.random() * positions.length)];
+    console.log("Nova classe do botão:", nextPosition);
+    setButtonClass(nextPosition);
   };
 
-  const handleForgotPassword = () => {
-    const userExists = usersDatabase.some((user) => user.username === username);
+  // Função para resetar posição do botão
+  const resetButtonPosition = () => {
+    console.log("Resetando posição do botão");
+    setButtonClass("");
+  };
 
-    if (userExists) {
-      setMessage("Instruções de recuperação enviadas ao seu e-mail.");
-    } else {
-      setMessage("Usuário não encontrado.");
+  // Função para capturar entrada dos campos
+  const handleInputChange = (event) => {
+    const { id, value } = event.target;
+    if (id === "uname") {
+      setUname(value);
+    } else if (id === "pass") {
+      setPass(value);
     }
+    checkFields();
   };
 
   return (
-    <div className="login-container" tabIndex="0" onKeyDown={handleKeyDown}>
-      <h1>MELODIA MÁGICA</h1>
-      <h1>{mode === "login" ? "Login" : mode === "register" ? "Registrar" : "Recuperar Senha"}</h1>
-      
-      <input
-        type="text"
-        className="login-input"
-        placeholder="Usuário"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      
-      {mode !== "forgotPassword" && (
+    <>
+      <div className={styles.container}>
+        <h2>Login</h2>
         <input
-          type="password"
-          className="login-input"
-          placeholder="Senha"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          type="text"
+          id="uname"
+          placeholder="Usuário"
+          value={uname}
+          onChange={handleInputChange}
         />
-      )}
-      
-      {mode === "login" && (
-        <button className="login-button" onClick={handleLogin}>
-          Entrar
-        </button>
-      )}
-      
-      {mode === "register" && (
-        <button className="login-button" onClick={handleRegister}>
-          Registrar
-        </button>
-      )}
-      
-      {mode === "forgotPassword" && (
-        <button className="login-button" onClick={handleForgotPassword}>
-          Recuperar Senha
-        </button>
-      )}
-      
-      {message && (
-        <p className={message.includes("sucesso") || message.includes("enviadas") 
-          ? "message-success" 
-          : "message-error"}>
-          {message}
-        </p>
-      )}
-      
-      <p>
-        {mode !== "register" && (
-          <a className="login-link" onClick={() => setMode("register")}>
-            Registrar
+        <input
+          type={showPassword ? "text" : "password"}
+          id="pass"
+          placeholder="Senha"
+          value={pass}
+          onChange={handleInputChange}
+        />
+
+        <div className={styles.showPasswordContainer}>
+          <input
+            type="checkbox"
+            id="show-password"
+            checked={showPassword}
+            onChange={handlePasswordToggle}
+          />
+          <label htmlFor="show-password">Mostrar Senha</label>
+        </div>
+
+        <p className={styles.msg}>{msg}</p>
+
+        <div className={styles.btnContainer}>
+          <button
+            id="login-btn"
+            disabled={btnDisabled}
+            className={`${buttonClass}`}
+            onClick={(event) => {
+              if (btnDisabled) {
+                event.preventDefault();
+                shiftButton();
+              }
+            }}
+          >
+            Entrar
+          </button>
+        </div>
+
+        <div className={styles.extraOptions}>
+          <button
+            className={`${styles.socialBtn} ${styles.signupBtn}`}
+            id="signup-btn"
+          >
+            Cadastre-se
+          </button>
+          <a href="#" id="forgot-password">
+            Esqueci minha senha
           </a>
-        )}
-        
-        {mode !== "forgotPassword" && mode === "login" && (
-          <> | <a className="login-link" onClick={() => setMode("forgotPassword")}>
-                Esqueceu a senha?
-              </a></>
-        )}
-        
-        {mode !== "login" && (
-          <> | <a className="login-link" onClick={() => setMode("login")}>
-                Voltar ao Login
-              </a></>
-        )}
-      </p>
-    </div>
+          <div className={styles.socialLogin}>
+            <button className={`${styles.socialBtn} ${styles.google}`}>
+              Login com Google
+            </button>
+            <button className={`${styles.socialBtn} ${styles.facebook}`}>
+              Login com Facebook
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div className={styles.notesContainer}>
+        <span className={styles.note}>🎵</span>
+        <span className={styles.note}>🎶</span>
+        <span className={styles.note}>🎼</span>
+      </div>
+    </>
   );
 }
 
-export default Login;
+export default App;
