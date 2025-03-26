@@ -27,7 +27,7 @@
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    background-color: #fffefb;
+    background-color: #41330b;
   }
   
   .quiz-option-button:hover {
