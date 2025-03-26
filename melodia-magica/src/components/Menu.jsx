@@ -2,13 +2,9 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Menu.css";
 
-<<<<<<< HEAD
-function Menu() {
-=======
 
 function Menu({ }) {
   const pathBase = "/PEXT-MELODIA-MAGICA";
->>>>>>> 01302924e909c899cc288c47fc3e8c4a55ae5777
   const navigate = useNavigate();
   return (
     <div className="container">
@@ -17,7 +13,7 @@ function Menu({ }) {
       </div>
       <ul className="menu-list">
         <li className="menu-item">
-          <button className="menu-button" onClick={() => navigate("/game_page")}>
+          <button className="menu-button" onClick={() => navigate(`${pathBase}/game_page`)}>
             Iniciar Quiz
           </button>
         </li>
