@@ -16,6 +16,7 @@
   
   .quiz-options {
     margin: 20px 0;
+    min-width: 800px;
   }
   
   .quiz-option-button {
