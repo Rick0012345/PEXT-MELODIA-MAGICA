@@ -1,18 +1,8 @@
-/* Estilo geral da página */
-body {
-  background: linear-gradient(135deg, #0d0f18, #232a38);
-  font-family: 'Orbitron', sans-serif;
-  color: #ffffff;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100vh;
-  overflow: hidden;
-}
+
 .logo{
-  margin-right: 100px;
+  margin-right: 190px;
+  font-size: large;
+
 }
 /* Navbar */
 .navbar {

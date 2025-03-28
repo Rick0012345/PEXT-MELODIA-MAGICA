@@ -1,0 +1,14 @@
+body {
+    background-image: url(./assets/login.jfif);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 100% 100%;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 110vh;
+    overflow: hidden;
+    position: relative;
+}

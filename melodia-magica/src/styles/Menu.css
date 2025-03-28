@@ -1,18 +1,4 @@
-/* Estilo geral da página */
-body {
-  background: linear-gradient(135deg, #0d0f18, #232a38);
-  font-family: 'Orbitron', sans-serif;
-  color: #ffffff;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100vh;
-  overflow: hidden;
-}
 
-/* Estilos do container principal */
 .container {
   text-align: center;
   padding: 40px;
