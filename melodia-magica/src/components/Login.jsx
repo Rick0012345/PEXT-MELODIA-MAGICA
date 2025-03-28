@@ -126,7 +126,7 @@ function App() {
 
       <div className={styles.musicNotesContainer}>
         <span className={styles.musicNote}>🎵</span>
-        <span className={styles.musicNote}>🎶</span>
+        <span className={styles.musicNote2}>🎶</span>
         <span className={styles.musicNote}>🎼</span>
       </div>
     </>

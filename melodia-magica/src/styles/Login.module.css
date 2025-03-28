@@ -126,7 +126,7 @@
 
 .musicNotesContainer {
     position: absolute;
-    top: 5%;
+    top: 10%;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -138,6 +138,12 @@
 .musicNote {
     font-size: 50px;
     animation: floatNotes 3s ease-in-out infinite;
+    opacity: 1;
+}
+
+.musicNote2 {
+    font-size: 50px;
+    animation: floatNotes2 3s ease-in-out infinite;
     opacity: 1;
 }
 
@@ -176,4 +182,10 @@
     0% { transform: translateY(0); opacity: 1; }
     50% { transform: translateY(-50px); opacity: 0.7; }
     100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes floatNotes2 {
+    0% { transform: translateY(-47px); opacity: 1; }
+    50% { transform: translateY(-25px); opacity: 0.7; }
+    100% { transform: translateY(-47px); opacity: 1; }
 }
