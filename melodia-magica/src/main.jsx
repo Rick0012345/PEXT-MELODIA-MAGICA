@@ -6,7 +6,7 @@ import Home from './routes/Home';
 import Login_page from './routes/Login_page';
 import Quiz from './routes/game_page';
 import App from './App';
-
+import Niveis from './routes/Niveis';
 import{ createBrowserRouter, RouterProvider,} from "react-router-dom";
 import Login from './components/Login';
 
@@ -24,7 +24,12 @@ const router = createBrowserRouter([
   {
     path: `${pathBase}/game_page`,
     element: <Quiz />,
-  }
+  },
+  {
+    path: `${pathBase}/niveis`,
+    element: <Niveis />,
+  },
+
 ]);
 createRoot(document.getElementById('root')).render(
   <StrictMode>
