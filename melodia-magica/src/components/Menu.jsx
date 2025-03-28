@@ -13,7 +13,7 @@ function Menu({ }) {
       </div>
       <ul className="menu-list">
         <li className="menu-item">
-          <button className="menu-button" onClick={() => navigate(`${pathBase}/game_page`)}>
+          <button className="menu-button" onClick={() => navigate(`${pathBase}/niveis`)}>
             Iniciar Quiz
           </button>
         </li>
