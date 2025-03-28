@@ -11,7 +11,9 @@ body {
   height: 100vh;
   overflow: hidden;
 }
-
+.logo{
+  margin-right: 100px;
+}
 /* Navbar */
 .navbar {
   width: 100%;

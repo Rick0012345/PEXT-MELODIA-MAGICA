@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../styles/Login.module.css";
@@ -11,26 +12,21 @@ function App() {
   const [msg, setMsg] = useState("");
   const [buttonClass, setButtonClass] = useState("");
 
-  // Função para alternar visibilidade da senha
   const handlePasswordToggle = () => {
     setShowPassword(!showPassword);
   };
 
-  // Função para verificar campos de entrada e habilitar/desabilitar botão
   const checkFields = () => {
-    console.log("Verificando campos: uname =", uname, ", pass =", pass);
     if (uname && pass) {
       setBtnDisabled(false);
       setMsg("");
       resetButtonPosition();
     } else {
       setBtnDisabled(true);
-      console.log("Botão desativado, chamando shiftButton");
       shiftButton();
     }
   };
 
-  // Função para mostrar mensagem de erro
   const showMsg = () => {
     if (!uname || !pass) {
       setMsg("Não dê uma de Espertinho kkk");
@@ -39,22 +35,17 @@ function App() {
     }
   };
 
-  // Função para mover botão aleatoriamente
   const shiftButton = () => {
     showMsg();
-    const positions = ["shift-left", "shift-top", "shift-right", "shift-bottom"];
+    const positions = ["loginButtonShiftLeft", "loginButtonShiftTop", "loginButtonShiftRight"];
     const nextPosition = positions[Math.floor(Math.random() * positions.length)];
-    console.log("Nova classe do botão:", nextPosition);
     setButtonClass(nextPosition);
   };
 
-  // Função para resetar posição do botão
   const resetButtonPosition = () => {
-    console.log("Resetando posição do botão");
     setButtonClass("");
   };
 
-  // Função para capturar entrada dos campos
   const handleInputChange = (event) => {
     const { id, value } = event.target;
     if (id === "uname") {
@@ -67,12 +58,13 @@ function App() {
 
   return (
     <>
-      <div className={styles.container}>
+      <div className={styles.loginContainer}>
         <h2>Login</h2>
         <input
           type="text"
           id="uname"
           placeholder="Usuário"
+          className={styles.loginInput}
           value={uname}
           onChange={handleInputChange}
         />
@@ -80,27 +72,29 @@ function App() {
           type={showPassword ? "text" : "password"}
           id="pass"
           placeholder="Senha"
+          className={styles.loginInput}
           value={pass}
           onChange={handleInputChange}
         />
 
-        <div className={styles.showPasswordContainer}>
+        <div className={styles.loginShowPasswordContainer}>
           <input
             type="checkbox"
             id="show-password"
+            className={styles.loginShowPasswordCheckbox}
             checked={showPassword}
             onChange={handlePasswordToggle}
           />
           <label htmlFor="show-password">Mostrar Senha</label>
         </div>
 
-        <p className={styles.msg}>{msg}</p>
+        <p className={styles.loginErrorMessage}>{msg}</p>
 
-        <div className={styles.btnContainer}>
+        <div className={styles.loginButtonContainer}>
           <button
             id="login-btn"
             disabled={btnDisabled}
-            className={`${buttonClass}`}
+            className={`${styles.loginButton} ${styles[buttonClass]}`}
             onClick={(event) => {
               if (btnDisabled) {
                 event.preventDefault();
@@ -112,31 +106,28 @@ function App() {
           </button>
         </div>
 
-        <div className={styles.extraOptions}>
-          <button
-            className={`${styles.socialBtn} ${styles.signupBtn}`}
-            id="signup-btn"
-          >
+        <div className={styles.loginExtraOptions}>
+          <button className={`${styles.socialButton} ${styles.signupButton}`}>
             Cadastre-se
           </button>
-          <a href="#" id="forgot-password">
+          <a href="#" className={styles.forgotPasswordLink}>
             Esqueci minha senha
           </a>
           <div className={styles.socialLogin}>
-            <button className={`${styles.socialBtn} ${styles.google}`}>
+            <button className={`${styles.socialButton} ${styles.socialButtonGoogle}`}>
               Login com Google
             </button>
-            <button className={`${styles.socialBtn} ${styles.facebook}`}>
+            <button className={`${styles.socialButton} ${styles.socialButtonFacebook}`}>
               Login com Facebook
             </button>
           </div>
         </div>
       </div>
 
-      <div className={styles.notesContainer}>
-        <span className={styles.note}>🎵</span>
-        <span className={styles.note}>🎶</span>
-        <span className={styles.note}>🎼</span>
+      <div className={styles.musicNotesContainer}>
+        <span className={styles.musicNote}>🎵</span>
+        <span className={styles.musicNote}>🎶</span>
+        <span className={styles.musicNote}>🎼</span>
       </div>
     </>
   );

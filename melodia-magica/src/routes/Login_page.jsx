@@ -1,7 +1,12 @@
 import Login from "../components/Login";
+import Navbar from "../components/Navbar";
 function Home() {
     return (
-     <Login></Login>
+      <div> 
+        <Navbar></Navbar>
+        <Login></Login>
+      </div>
+     
     );
   }
   
