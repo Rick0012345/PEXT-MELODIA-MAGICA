@@ -8,7 +8,7 @@ import App from './App';
 import Niveis from './routes/Niveis';
 import{ createBrowserRouter, RouterProvider,} from "react-router-dom";
 import Login from './components/Login';
-
+import CadastroPage from './routes/cadastro_page';
 const pathBase = "/PEXT-MELODIA-MAGICA"
 const router = createBrowserRouter([
   {
@@ -27,6 +27,10 @@ const router = createBrowserRouter([
   {
     path: `${pathBase}/niveis`,
     element: <Niveis />,
+  },
+  {
+    path: `${pathBase}/cadastro`,
+    element: <CadastroPage />,
   },
 
 ]);
