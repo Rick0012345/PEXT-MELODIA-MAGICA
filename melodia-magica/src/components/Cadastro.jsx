@@ -66,8 +66,8 @@ function Signup() {
 
   return (
     <>
-      <div className={styles.loginContainer}>
-        <h2 className={styles.loginTitle}>Criar Conta</h2>
+      <div className={styles.Cadastro_loginContainer}>
+        <h2 className={styles.Cadastro_loginTitle}>Criar Conta</h2>
         <input
           type="text"
           id="name"
@@ -114,11 +114,11 @@ function Signup() {
 
         <p className={styles.loginErrorMessage}>{msg}</p>
 
-        <div className={styles.loginButtonContainer}>
+        <div className={styles.Cadastro_loginButtonContainer}>
           <button
             id="signup-btn"
             disabled={btnDisabled}
-            className={`${styles.loginButton} ${styles[buttonClass]}`}
+            className={`${styles.Cadastro_loginButton} ${styles[buttonClass]}`}
             onClick={(event) => {
               if (btnDisabled) {
                 event.preventDefault();
@@ -133,9 +133,9 @@ function Signup() {
           </button>
         </div>
 
-        <div className={styles.loginExtraOptions}>
+        <div className={styles.Cadastro_loginExtraOptions}>
           <button 
-            className={`${styles.socialButton} ${styles.signupButton}`}
+            className={`${styles.Cadastro_socialButton} ${styles.Cadastro_signupButton}`}
             onClick={() => navigate(`${pathBase}/login`)}
           >
             Já tem conta? Faça Login
