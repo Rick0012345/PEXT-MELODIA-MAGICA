@@ -1,13 +1,15 @@
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "../styles/Login.module.css";
 
-function App() {
-  const pathBase = "/PEXT-MELODIA-MAGICA"
+function Signup() {
+  const pathBase = "/PEXT-MELODIA-MAGICA";
+
   const navigate = useNavigate();
-  const [uname, setUname] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
+  const [confirmPass, setConfirmPass] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [btnDisabled, setBtnDisabled] = useState(true);
   const [msg, setMsg] = useState("");
@@ -18,26 +20,22 @@ function App() {
   };
 
   const checkFields = () => {
-    if (uname && pass) {
+    if (name && email && pass && confirmPass && pass === confirmPass) {
       setBtnDisabled(false);
       setMsg("");
       resetButtonPosition();
     } else {
       setBtnDisabled(true);
+      if (pass !== confirmPass) {
+        setMsg("As senhas não coincidem!");
+      } else {
+        setMsg("Preencha todos os campos!");
+      }
       shiftButton();
     }
   };
 
-  const showMsg = () => {
-    if (!uname || !pass) {
-      setMsg("Não dê uma de Espertinho kkk");
-    } else {
-      setMsg("");
-    }
-  };
-
   const shiftButton = () => {
-    showMsg();
     const positions = ["loginButtonShiftLeft", "loginButtonShiftTop", "loginButtonShiftRight"];
     const nextPosition = positions[Math.floor(Math.random() * positions.length)];
     setButtonClass(nextPosition);
@@ -49,10 +47,19 @@ function App() {
 
   const handleInputChange = (event) => {
     const { id, value } = event.target;
-    if (id === "uname") {
-      setUname(value);
-    } else if (id === "pass") {
-      setPass(value);
+    switch(id) {
+      case "name":
+        setName(value);
+        break;
+      case "email":
+        setEmail(value);
+        break;
+      case "pass":
+        setPass(value);
+        break;
+      case "confirmPass":
+        setConfirmPass(value);
+        break;
     }
     checkFields();
   };
@@ -60,13 +67,21 @@ function App() {
   return (
     <>
       <div className={styles.loginContainer}>
-        <h2 className={styles.loginTitle}>Login</h2>
+        <h2 className={styles.loginTitle}>Criar Conta</h2>
         <input
           type="text"
-          id="uname"
-          placeholder="Usuário"
+          id="name"
+          placeholder="Nome Completo"
           className={styles.loginInput}
-          value={uname}
+          value={name}
+          onChange={handleInputChange}
+        />
+        <input
+          type="email"
+          id="email"
+          placeholder="E-mail"
+          className={styles.loginInput}
+          value={email}
           onChange={handleInputChange}
         />
         <input
@@ -75,6 +90,14 @@ function App() {
           placeholder="Senha"
           className={styles.loginInput}
           value={pass}
+          onChange={handleInputChange}
+        />
+        <input
+          type={showPassword ? "text" : "password"}
+          id="confirmPass"
+          placeholder="Confirme a Senha"
+          className={styles.loginInput}
+          value={confirmPass}
           onChange={handleInputChange}
         />
 
@@ -93,48 +116,42 @@ function App() {
 
         <div className={styles.loginButtonContainer}>
           <button
-            id="login-btn"
+            id="signup-btn"
             disabled={btnDisabled}
             className={`${styles.loginButton} ${styles[buttonClass]}`}
             onClick={(event) => {
               if (btnDisabled) {
                 event.preventDefault();
                 shiftButton();
+              } else {
+                // Lógica de cadastro aqui
+                navigate("/");
               }
             }}
           >
-            Entrar
+            Cadastrar
           </button>
         </div>
 
         <div className={styles.loginExtraOptions}>
           <button 
             className={`${styles.socialButton} ${styles.signupButton}`}
-            onClick={() => navigate(`${pathBase}/cadastro`)}>
-          
-            Cadastre-se
+            onClick={() => navigate(`${pathBase}/login`)}
+          >
+            Já tem conta? Faça Login
           </button>
-          <a href="#" className={styles.forgotPasswordLink}>
-            Esqueci minha senha
-          </a>
           <div className={styles.socialLogin}>
             <button className={`${styles.socialButton} ${styles.socialButtonGoogle}`}>
-              Login com Google
+              Cadastrar com Google
             </button>
             <button className={`${styles.socialButton} ${styles.socialButtonFacebook}`}>
-              Login com Facebook
+              Cadastrar com Facebook
             </button>
           </div>
         </div>
-      </div>
-
-      <div className={styles.musicNotesContainer}>
-        <span className={styles.musicNote}>🎵</span>
-        <span className={styles.musicNote2}>🎶</span>
-        <span className={styles.musicNote}>🎼</span>
       </div>
     </>
   );
 }
 
-export default App;
+export default Signup;
