@@ -7,7 +7,6 @@ const Home = () => {
     const navigate = useNavigate();
 
     return (
-        <div className="container">
 
             <div className="parent">
                 {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
@@ -20,7 +19,6 @@ const Home = () => {
                     </div>
                 ))}
             </div>
-        </div>
     );
 };
 
