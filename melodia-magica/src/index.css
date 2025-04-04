@@ -12,3 +12,43 @@ body {
     overflow: hidden;
     position: relative;
 }
+
+
+.logo {
+    position: fixed;
+    top: 2px;
+    left: 20px;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(to bottom, #54910ef1 30%, #fc5c0d 100%);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    box-shadow: 0px 0px 15px rgba(80, 1, 1, 0.644), 0px 0px 30px rgba(214, 6, 6, 0.6);
+    overflow: hidden;
+    z-index: 1000;
+    position: fixed;
+}
+
+.logo::before {
+    content: '';
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 10%, transparent 70%);
+    top: -50%;
+    left: -50%;
+    transform: rotate(30deg);
+    animation: brilho 3s infinite linear;
+    pointer-events: none;
+    border-radius: 50%;
+}
+
+.logo img {
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 50%;
+    z-index: 1;
+}

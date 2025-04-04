@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 import '../styles/Navbar.css';
-
+import logo from "../assets/logo.jpeg"; 
 const Navbar = () => {
   const pathBase = "/PEXT-MELODIA-MAGICA";
   return (
     <nav className="navbar">
-      <span className="logo">Melodia Mágica</span>       
+      <img src={logo} alt="Logo" className="logo" />
       <div className="nav-links">
         <Link to={`${pathBase}/`} className="nav-link">Home</Link>
         <Link to={`${pathBase}/about`} className="nav-link">Sobre</Link>

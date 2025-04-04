@@ -1,35 +1,19 @@
 import { useNavigate } from "react-router-dom";
-import '../styles/Niveis.css';
+import "../styles/Niveis.css"; // Adjust the path as necessary
+import logo from '../assets/logo.jpeg'; // Adjust the path as necessary
 
-const Niveis = () => {
+const Home = () => {
     const pathBase = "/PEXT-MELODIA-MAGICA";
     const navigate = useNavigate();
 
-    const handleCardClick = (levelNumber) => {
-        navigate(`${pathBase}/level${levelNumber}`);
-    };
-
     return (
         <div className="container">
-            <h1 className="title">Inicio de sua jornada</h1>
-            
-            <div className="card-row">
-                {[1, 2, 3, 4, 5].map((num) => (
+
+            <div className="parent">
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
                     <div 
                         key={num} 
-                        className="card"
-                        onClick={() => navigate(`${pathBase}/game_page`)}
-                    >
-                        {num}
-                    </div>
-                ))}
-            </div>
-    
-            <div className="card-row">
-                {[6, 7, 8, 9, 10].map((num) => (
-                    <div 
-                        key={num} 
-                        className="card"
+                        className={`card div${num}`}
                         onClick={() => navigate(`${pathBase}/game_page`)}
                     >
                         {num}
@@ -40,5 +24,4 @@ const Niveis = () => {
     );
 };
 
-// Add this export statement at the end
-export default Niveis;
+export default Home;
