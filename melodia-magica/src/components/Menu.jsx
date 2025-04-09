@@ -40,6 +40,12 @@ function Menu({ }) {
           > 
             Sobre
           </button>
+        <li className="menu-item">
+          <button className="menu-button" onClick={() => navigate(`${pathBase}/cadastro_questoes`)}>
+            Cadastrar Questões
+          </button>
+        </li>
+
         </li>
       </ul>
       
