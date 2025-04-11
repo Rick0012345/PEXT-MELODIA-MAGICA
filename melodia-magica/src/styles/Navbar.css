@@ -101,12 +101,6 @@
   align-items: center;
 }
 
-/* Estilos para o texto de perfil */
-.profile {
-  font-size: 1.8rem;
-  font-weight: bold;
-  text-shadow: 0 0 20px #00ffff, 0 0 10px #ff00ff;
-}
 
 /* Efeito de hover nos botões */
 .menu-button:hover {
@@ -153,9 +147,6 @@
   }
 }
 
-.profile {
-  animation: glow 1.5s ease-in-out infinite;
-}
 
 /* Responsividade para dispositivos móveis */
 @media (max-width: 1024px) {
