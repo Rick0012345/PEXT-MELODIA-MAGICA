@@ -44,18 +44,16 @@
 
 /* Estilos para o texto de perfil */
 .profile {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: bold;
   text-shadow: 0 0 20px #00ffff, 0 0 10px #ff00ff;
 }
 
 /* Estilo dos botões */
 .menu-button {
-  padding: 12px 25px;
   font-size: 16px;
   background: linear-gradient(to bottom, #7c9112f1 30%, #d9652c 100%);
   color: white;
-  
   border-radius: 50px;
   cursor: pointer;
   width: 180px;
@@ -115,3 +113,8 @@
   animation: glow 1.5s ease-in-out infinite;
 }
 
+@media (max-width: 500px) {
+  .container {
+    padding: 5px 20px 0;
+  }
+}

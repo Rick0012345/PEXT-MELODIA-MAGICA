@@ -1,4 +1,35 @@
 import React, { useState } from 'react';
+import "../styles/CadastrarQuestoes.css";
+
+const Textarea = ({ value, onChange, placeholder, className }) => (
+    <textarea
+        className={`input-field ${className}`}
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+    />
+);
+
+const Input = ({ value, onChange, placeholder, className }) => (
+    <input
+        className={`input-field ${className}`}
+        type="text"
+        value={value}
+        onChange={onChange}
+        placeholder={placeholder}
+    />
+);
+
+const Select = ({ value, onChange, options, className }) => (
+    <select className={`input-field ${className}`} value={value} onChange={onChange}>
+        <option value="">Selecione a resposta correta</option>
+        {options.map((_, index) => (
+            <option key={index} value={index}>
+                Resposta {index + 1}
+            </option>
+        ))}
+    </select>
+);
 
 const CadastrarQuestoes = () => {
     const [questao, setQuestao] = useState('');
@@ -6,13 +37,8 @@ const CadastrarQuestoes = () => {
     const [respostaCorreta, setRespostaCorreta] = useState('');
 
     const handleAdicionarQuestao = () => {
-        const novaQuestao = {
-            questao,
-            respostas,
-            respostaCorreta,
-        };
+        const novaQuestao = { questao, respostas, respostaCorreta };
         console.log('Questão cadastrada:', novaQuestao);
-        // Aqui você pode enviar a questão para um backend ou salvar no estado global
         setQuestao('');
         setRespostas(['', '', '', '']);
         setRespostaCorreta('');
@@ -25,22 +51,23 @@ const CadastrarQuestoes = () => {
     };
 
     return (
-        <div>
-            <h1>Cadastrar Questões</h1>
-            <div>
-                <label>Questão:</label>
-                <textarea
+        <div className="container">
+            <h1 className="title">Cadastrar Questões</h1>
+            <div className="questao-container">
+                <label className="label-questao">Questão:</label>
+                <Textarea
+                    className="textarea-questao"
                     value={questao}
                     onChange={(e) => setQuestao(e.target.value)}
                     placeholder="Digite a questão aqui"
                 />
             </div>
-            <div>
-                <h3>Respostas:</h3>
+            <div className="respostas-container">
+                <h3 className="titulo-respostas">Respostas:</h3>
                 {respostas.map((resposta, index) => (
-                    <div key={index}>
-                        <input
-                            type="text"
+                    <div className="resposta-input" key={index}>
+                        <Input
+                            className="input-resposta"
                             value={resposta}
                             onChange={(e) => handleRespostaChange(index, e.target.value)}
                             placeholder={`Resposta ${index + 1}`}
@@ -48,21 +75,18 @@ const CadastrarQuestoes = () => {
                     </div>
                 ))}
             </div>
-            <div>
-                <label>Resposta Correta:</label>
-                <select
+            <div className="resposta-correta-container">
+                <label className="label-resposta-correta">Resposta Correta:</label>
+                <Select
+                    className="select-resposta-correta"
                     value={respostaCorreta}
                     onChange={(e) => setRespostaCorreta(e.target.value)}
-                >
-                    <option value="">Selecione a resposta correta</option>
-                    {respostas.map((_, index) => (
-                        <option key={index} value={index}>
-                            Resposta {index + 1}
-                        </option>
-                    ))}
-                </select>
+                    options={respostas}
+                />
             </div>
-            <button onClick={handleAdicionarQuestao}>Adicionar Questão</button>
+            <button className="button" onClick={handleAdicionarQuestao}>
+                Adicionar Questão
+            </button>
         </div>
     );
 };

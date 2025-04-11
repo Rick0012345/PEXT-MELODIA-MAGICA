@@ -1,0 +1,136 @@
+
+/* Estilos para o componente CadastrarQuestoes */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #b4ff84;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.input-field {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .title {
+        font-size: 22px;
+        margin-bottom: 18px;
+        text-align: center;
+    }
+
+    .input-field {
+        width: 90%;
+        padding: 9px;
+        margin-bottom: 12px;
+        box-sizing: border-box;
+    }
+
+    .button {
+        padding: 9px 18px;
+    }
+
+    .error-message {
+        font-size: 13px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .title {
+        font-size: 20px;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    .input-field {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+
+    .button {
+        padding: 8px 16px;
+    }
+
+    .error-message {
+        font-size: 12px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 400px) and (max-height: 528px) {
+    .container {
+        padding: 8px;
+        width: 100%;
+        box-sizing: border-box;
+    }
+    
+    .title {
+        font-size: 18px;
+        margin-bottom: 12px;
+        text-align: center;
+    }
+
+    .input-field {
+        width: 100%;
+        padding: 7px;
+        margin-bottom: 8px;
+        box-sizing: border-box;
+    }
+
+    .button {
+        padding: 7px 14px;
+    }
+
+    .error-message {
+        font-size: 11px;
+        text-align: center;
+    }
+}

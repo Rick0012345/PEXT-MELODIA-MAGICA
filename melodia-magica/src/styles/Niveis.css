@@ -90,3 +90,18 @@
     50% { transform: scale(1.05); }
     100% { transform: scale(1); }
 }
+
+@media (max-width: 500px) {
+    .container {
+        height: 65vh;
+    }
+    .card {
+        width: 80px;
+        height: 120px;
+        margin: 19px; 
+        top: 10px;  
+    }
+    .parent {
+        display: ruby;
+    }
+}
