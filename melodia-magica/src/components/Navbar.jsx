@@ -8,7 +8,6 @@ const Navbar = () => {
       <img src={logo} alt="Logo" className="logo" />
       <div className="nav-links">
         <Link to={`${pathBase}/`} className="nav-link">Home</Link>
-        <Link to={`${pathBase}/about`} className="nav-link">Sobre</Link>
         <Link to={`${pathBase}/services`} className="nav-link">Serviços</Link>
         <Link to={`${pathBase}/contact`} className="nav-link">Contato</Link>
         {/* 🔹 Botão de login */}

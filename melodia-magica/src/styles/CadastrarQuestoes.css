@@ -5,9 +5,11 @@
     flex-direction: column;
     align-items: center;
     padding: 20px;
+    
+}
+#container_cadastrar_questoes {
     background-color: #b4ff84;
 }
-
 .title {
     font-size: 24px;
     font-weight: bold;
