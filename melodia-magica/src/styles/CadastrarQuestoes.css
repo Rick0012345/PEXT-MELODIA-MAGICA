@@ -5,9 +5,11 @@
     flex-direction: column;
     align-items: center;
     padding: 20px;
+    
+}
+#container_cadastrar_questoes {
     background-color: #b4ff84;
 }
-
 .title {
     font-size: 24px;
     font-weight: bold;
@@ -77,7 +79,7 @@
 
 @media (max-width: 480px) {
     .container {
-        padding: 10px;
+        padding: 1px;
         width: 100%;
         box-sizing: border-box;
     }
@@ -89,7 +91,7 @@
     }
 
     .input-field {
-        width: 100%;
+        width: 80%;
         padding: 8px;
         margin-bottom: 10px;
         box-sizing: border-box;

@@ -51,7 +51,7 @@ const CadastrarQuestoes = () => {
     };
 
     return (
-        <div className="container">
+        <div className="container" id='container_cadastrar_questoes' >
             <h1 className="title">Cadastrar Questões</h1>
             <div className="questao-container">
                 <label className="label-questao">Questão:</label>
