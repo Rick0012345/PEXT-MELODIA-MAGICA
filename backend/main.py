@@ -7,7 +7,7 @@ import os
 load_dotenv()
 
 # Configuração do banco de dados
-DATABASE_URL = os.getenv("DATABASE_URL", "mysql+pymysql://root:3306@localhost/sistema_db")
+DATABASE_URL = os.getenv("DATABASE_URL", "mysql+pymysql://root:3306@localhost/mm_db")
 
 app = FastAPI(
     title="Melodia Mágica API",
